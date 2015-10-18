@@ -33,9 +33,24 @@ public class CalculatorTest {
     public void testNewLines(){
     	assertEquals(6, Calculator.add("1\n2,3"));
     }
-    
+
     @Test
     public void testSpecifiedDelimiter(){
     	assertEquals(3, Calculator.add("//;\n1;2"));
+    }
+
+    /*@Test
+    public void testExceptionswithnegativenumbers() throws Exception{
+    	try {
+    		Calculator.add("-1,2");
+    		} catch (Exception e) {
+    		String message = "Negatives not allowed: -1";
+    		assertEquals(message, e.getMessage());
+    		}
+    }*/
+
+    @Test
+    public void numberlargerthan1000shouldbeignored(){
+    	assertEquals(2, Calculator.add("1001,2"));
     }
 }

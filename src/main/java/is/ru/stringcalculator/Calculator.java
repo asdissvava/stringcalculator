@@ -12,6 +12,9 @@ public class Calculator {
 		if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
+		/*if(text.size() < 0) {
+			throw new Exception();
+		}*/
 		else
 			return 1;
 }
@@ -29,11 +32,19 @@ public class Calculator {
 		numbers = part[1]; 
 		return numbers.split(delimiter); 
 	}
+
+/*	private static int toInt(String numbers){
+		int num = Integer.parseInt(numbers);
+		if(num < 0) throw new Exception;
+		return num; 
+	}*/
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
+        	if (toInt(number) <= 1000){
 		    total += toInt(number);
 		}
+	}
 		return total;
     }
 
